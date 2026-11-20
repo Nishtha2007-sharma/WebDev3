@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome to our page</h1>
+</body>
+</html>
+
+
+
+<script>
+
+    const socket =io("//localhost:8080/");
+
+
+     // Sending 
+    socket.emit("gyankibaat", "welcome to socket.io server");
+
+    // Reading
+    socket.on("gyankibaat", (msg) => {
+        console.log("Message from server", msg);
+    });
+    
+    //ReadingBroading
+    socket.on("join", (msg)=> {
+        console.log("Message from server", msg);
+    })
+
+    //Reading Broading
+    socket.io("announcement", (msg)=>{
+        console.log("Message from server",msg);
+    })
+</script>
